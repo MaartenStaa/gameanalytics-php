@@ -35,10 +35,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
      */
     public function testGetEndpoint()
     {
-        $http = new Guzzle6HttpAdapter(new GuzzleClient(array(
-            'handler' => new MockHandler,
-        )));
-        $client = new Client('aaaaa', 'bbbbb', $http);
+        $client = new Client('aaaaa', 'bbbbb');
 
         $this->assertEquals(
             $client::API_ENDPOINT . $client::API_VERSION . '/aaaaa/foo',
@@ -52,10 +49,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
      */
     public function testSandbox()
     {
-        $http = new Guzzle6HttpAdapter(new GuzzleClient(array(
-            'handler' => new MockHandler,
-        )));
-        $client = new Client('aaaaa', 'bbbbb', $http);
+        $client = new Client('aaaaa', 'bbbbb');
 
         $client->sandbox(true);
 
@@ -77,10 +71,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
      */
     public function testInit()
     {
-        $http = new Guzzle6HttpAdapter(new GuzzleClient(array(
-            'handler' => new MockHandler,
-        )));
-        $client = new Client('aaaaa', 'bbbbb', $http);
+        $client = new Client('aaaaa', 'bbbbb');
 
         $init = $client->init();
         $this->assertInstanceOf('MaartenStaa\GameAnalytics\Message', $init);
@@ -93,10 +84,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
      */
     public function testEvent()
     {
-        $http = new Guzzle6HttpAdapter(new GuzzleClient(array(
-            'handler' => new MockHandler,
-        )));
-        $client = new Client('aaaaa', 'bbbbb', $http);
+        $client = new Client('aaaaa', 'bbbbb');
 
         $event = $client->event('foo');
         $this->assertInstanceOf('MaartenStaa\GameAnalytics\Message', $event);
