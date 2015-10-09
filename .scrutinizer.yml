@@ -7,6 +7,9 @@ tools:
         config:
             standard: "PSR2"
 
+build:
+    tests: true
+
 checks:
     php:
         argument_type_checks: true
