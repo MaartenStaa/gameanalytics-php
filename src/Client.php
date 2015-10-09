@@ -92,9 +92,9 @@ class Client
      *
      * @return string
      */
-    protected function getEndpoint($api)
+    public function getEndpoint($api)
     {
-        return ($this->sandbox ? self::API_ENDPOINT_SANDBOX : API_ENDPOINT) .
+        return ($this->sandbox ? self::API_ENDPOINT_SANDBOX : self::API_ENDPOINT) .
             self::API_VERSION . '/' . $this->key . '/'. $api;
     }
 
