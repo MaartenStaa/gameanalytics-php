@@ -10,5 +10,12 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "prefer-stable": true,
+    "require": {
+        "php-http/adapter-implementation": "^0.1",
+        "php-http/discovery": "^0.1"
+    },
+    "require-dev": {
+        "php-http/guzzle6-adapter": "^0.2"
+    }
 }
