@@ -105,8 +105,7 @@ class Client
      */
     public function init()
     {
-        return (new Message($this->getEndpoint('init')))
-            ->setHttp($this->http);
+        return new Message($this->getEndpoint('init'), $this);
     }
 
     /**
@@ -117,8 +116,9 @@ class Client
      */
     public function event($category)
     {
-        return (new Message($this->getEndpoint('events')))
-            ->setHttp($this->http)
-            ->set('category', $category);
+        $message = new Message($this->getEndpoint('events'), $this);
+        $message->set('category', $category);
+
+        return $message;
     }
 }

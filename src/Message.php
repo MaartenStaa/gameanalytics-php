@@ -1,6 +1,5 @@
 <?php namespace MaartenStaa\GameAnalytics;
 
-use Http\Adapter\HttpAdapter;
 use Http\Discovery\MessageFactoryDiscovery;
 
 /**
@@ -20,7 +19,7 @@ class Message
      * @param string $endpoint
      * @param \MaartenStaa\GameAnalytics\Client $client
      */
-    public function __construct($endpoint, HttpAdapter $client)
+    public function __construct($endpoint, Client $client)
     {
         $this->endpoint = $endpoint;
         $this->client = $client;
