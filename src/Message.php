@@ -9,8 +9,26 @@ use Http\Discovery\MessageFactoryDiscovery;
  */
 class Message
 {
+    /**
+     * The URI of the endpoint that this message will be sent to.
+     *
+     * @var string
+     */
     protected $endpoint;
+
+    /**
+     * The GameAnalytics client that this message belongs to.
+     *
+     * @var \MaartenStaa\GameAnalytics\Client
+     */
     protected $client;
+
+    /**
+     * The parameters for this message. These will be JSON encoded into the request
+     * body when sending the message.
+     *
+     * @var array
+     */
     protected $payload = array();
 
     /**
