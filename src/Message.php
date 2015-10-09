@@ -77,8 +77,9 @@ class Message
      * Set a value to be sent as part of this message. Use either as
      * set($myKey, $myValue) or as set(array('key1' => 'value1', 'key2' => 'value2')).
      *
-     * @param string|array $key
-     * @param mixed|null   $value
+     * @param  string|array $key
+     * @param  mixed|null   $value
+     * @return \MaartenStaa\GameAnalytics\Message
      */
     public function set($key, $value = null)
     {
@@ -87,6 +88,8 @@ class Message
         } else {
             $this->payload[$key] = $value;
         }
+
+        return $this;
     }
 
     /**

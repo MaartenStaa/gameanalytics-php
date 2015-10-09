@@ -37,13 +37,13 @@ class MessageTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(array(), $message->getPayload());
 
-        $message->set('key', 'value');
+        $this->assertSame($message, $message->set('key', 'value'));
         $this->assertEquals(array('key' => 'value'), $message->getPayload());
 
-        $message->set(array(
+        $this->assertSame($message, $message->set(array(
             'foo1' => 'bar',
             'foo2' => 'baz',
-        ));
+        )));
         $this->assertEquals(array(
             'key' => 'value',
             'foo1' => 'bar',
