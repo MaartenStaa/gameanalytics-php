@@ -1,3 +1,3 @@
 # GameAnalytics
 
-PHP wrapper for the GameAnalatyics REST API.
+PHP wrapper for the GameAnalytics REST API.
