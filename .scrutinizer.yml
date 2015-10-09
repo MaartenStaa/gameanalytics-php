@@ -8,6 +8,9 @@ tools:
             standard: "PSR2"
 
 build:
+    environment:
+        php:
+            version: "5.5.25"
     tests: true
 
 checks:
