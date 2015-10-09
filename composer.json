@@ -1,6 +1,6 @@
 {
     "name": "maartenstaa/gameanalytics-php",
-    "description": "PHP wrapper for the GameAnalatyics REST API.",
+    "description": "PHP wrapper for the GameAnalytics REST API.",
     "type": "library",
     "license": "BSD-3-Clause",
     "authors": [
@@ -17,5 +17,15 @@
     },
     "require-dev": {
         "php-http/guzzle6-adapter": "^0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "MaartenStaa\\GameAnalytics\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MaartenStaa\\GameAnalytics\\": "tests/"
+        }
     }
 }
