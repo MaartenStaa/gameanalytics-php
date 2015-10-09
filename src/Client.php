@@ -121,4 +121,74 @@ class Client
 
         return $message;
     }
+
+    /**
+     * Create a "user" event. Shortcut for event('user').
+     *
+     * @return \MaartenStaa\GameAnalytics\Message
+     */
+    public function user()
+    {
+        return $this->event('user');
+    }
+
+    /**
+     * Create a "session_end" event. Shortcut for event('session_end').
+     *
+     * @return \MaartenStaa\GameAnalytics\Message
+     */
+    public function sessionEnd()
+    {
+        return $this->event('session_end');
+    }
+
+    /**
+     * Create a "business" event. Shortcut for event('business').
+     *
+     * @return \MaartenStaa\GameAnalytics\Message
+     */
+    public function business()
+    {
+        return $this->event('business');
+    }
+
+    /**
+     * Create a "resource" event. Shortcut for event('resource').
+     *
+     * @return \MaartenStaa\GameAnalytics\Message
+     */
+    public function resource()
+    {
+        return $this->event('resource');
+    }
+
+    /**
+     * Create a "progression" event. Shortcut for event('progression').
+     *
+     * @return \MaartenStaa\GameAnalytics\Message
+     */
+    public function progression()
+    {
+        return $this->event('progression');
+    }
+
+    /**
+     * Create a "design" event. Shortcut for event('design').
+     *
+     * @return \MaartenStaa\GameAnalytics\Message
+     */
+    public function design()
+    {
+        return $this->event('design');
+    }
+
+    /**
+     * Create a "error" event. Shortcut for event('error').
+     *
+     * @return \MaartenStaa\GameAnalytics\Message
+     */
+    public function error()
+    {
+        return $this->event('error');
+    }
 }

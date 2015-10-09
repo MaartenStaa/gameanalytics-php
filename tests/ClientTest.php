@@ -92,4 +92,24 @@ class ClientTest extends PHPUnit_Framework_TestCase
         $this->assertStringEndsWith('aaaaa/events', $event->getEndpoint());
         $this->assertEquals(['category' => 'foo'], $event->getPayload());
     }
+
+    public function testShortcuts()
+    {
+        $client = new Client('aaaaa', 'bbbbb');
+
+        foreach (array('user', 'business', 'resource', 'progression', 'design', 'error') as $category) {
+            $event = $client->$category();
+            $this->assertInstanceOf('MaartenStaa\GameAnalytics\Message', $event);
+            $this->assertSame($client, $event->getClient());
+            $this->assertStringEndsWith('aaaaa/events', $event->getEndpoint());
+            $this->assertEquals(['category' => $category], $event->getPayload());
+        }
+
+        // This is the only one with a different function name.
+        $event = $client->sessionEnd();
+        $this->assertInstanceOf('MaartenStaa\GameAnalytics\Message', $event);
+        $this->assertSame($client, $event->getClient());
+        $this->assertStringEndsWith('aaaaa/events', $event->getEndpoint());
+        $this->assertEquals(['category' => 'session_end'], $event->getPayload());
+    }
 }
