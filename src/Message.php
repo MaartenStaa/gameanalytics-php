@@ -26,6 +26,36 @@ class Message
     }
 
     /**
+     * Get the configured endpoint for this message.
+     *
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        return $this->endpoint;
+    }
+
+    /**
+     * Get the configured GameAnalytics client.
+     *
+     * @return \MaartenStaa\GameAnalytics\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * Get the payload of all the parameters that are set on this message.
+     *
+     * @return array
+     */
+    public function getPayload()
+    {
+        return $this->payload;
+    }
+
+    /**
      * Set a value to be sent as part of this message. Use either as
      * set($myKey, $myValue) or as set(array('key1' => 'value1', 'key2' => 'value2')).
      *
@@ -50,7 +80,7 @@ class Message
     {
         $request = $this->buildRequest();
 
-        return $this->client->getHttp()->sendRequest($request);
+        return $this->getClient()->getHttp()->sendRequest($request);
     }
 
     /**
@@ -65,7 +95,7 @@ class Message
 
         // Build the request and return it.
         return MessageFactoryDiscovery::find()
-            ->createRequest('POST', $this->endpoint)
+            ->createRequest('POST', $this->getEndpoint())
             ->withBody($body)
             ->withHeader('Content-Type', 'application/json')
             ->withHeader('Content-Encoding', 'gzip')
@@ -79,7 +109,7 @@ class Message
      */
     protected function getGzippedBody()
     {
-        $body = json_encode($this->payload);
+        $body = json_encode($this->getPayload());
 
         return gzencode($body);
     }
