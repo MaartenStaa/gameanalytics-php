@@ -10,7 +10,7 @@ use Http\Discovery\HttpAdapterDiscovery;
  */
 class Client
 {
-    const API_ENDPOINT = 'https://api.gameanalytics.com/';
+    const API_ENDPOINT = 'http://api.gameanalytics.com/';
     const API_ENDPOINT_SANDBOX = 'http://sandbox-api.gameanalytics.com/';
     const API_VERSION = 'v2';
 
