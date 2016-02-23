@@ -13,7 +13,7 @@ Using [Composer](http://getcomposer.org/), add the package to your `require` sec
 ```json
 {
 	"require": {
-		"maartenstaa/gameanalytics-php": "~1"
+		"maartenstaa/gameanalytics-php": "~2"
 	}
 }
 ```
