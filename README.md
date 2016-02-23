@@ -18,14 +18,16 @@ Using [Composer](http://getcomposer.org/), add the package to your `require` sec
 }
 ```
 
-This package requires you to select an HTTP adapter to be used. For more information,
+This package requires you to select an HTTP client to be used. For more information,
 [read the documentation][4].
 
 ## Usage
 
 First, create a client using the game key and associated secret key. The third
-parameter is the HTTP adapter you want to use. If you do not provide it, the package
-will try to auto-detect which one is available.
+parameter is the HTTP client you want to use. If you do not provide it, the package
+will try to auto-detect which one is available. The fourth and final parameter is
+the HTTP message factory you wish to use. Again, if you do not provide it, the package
+will try to auto-detect which is available.
 
 ```php
 use MaartenStaa\GameAnalytics\Client;
