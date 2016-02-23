@@ -2,6 +2,7 @@
 
 use Http\Client\HttpClient;
 use Http\Discovery\HttpClientDiscovery;
+use Http\Discovery\MessageFactoryDiscovery;
 use Http\Message\MessageFactory;
 
 /**
@@ -37,6 +38,13 @@ class Client
     protected $http;
 
     /**
+     * The HTTP message factory that should be used.
+     *
+     * @var \Http\Message\MessageFactory
+     */
+    protected $factory;
+
+    /**
      * Whether this client should communicate with the sandbox servers instead
      * of the real API endpoints.
      *
@@ -50,12 +58,14 @@ class Client
      * @param string $key
      * @param string $secret
      * @param \Http\Client\HttpClient|null $http
+     * @param \Http\Message\MessageFactory|null $factory
      */
     public function __construct($key, $secret, HttpClient $http = null)
     {
         $this->key = $key;
         $this->secret = $secret;
         $this->http = $http ?: HttpClientDiscovery::find();
+        $this->factory = $factory ?: MessageFactoryDiscovery::find();
     }
 
     /**
@@ -86,6 +96,16 @@ class Client
     public function getHttp()
     {
         return $this->http;
+    }
+
+    /**
+     * Get the configured HTTP message factory.
+     *
+     * @return \Http\Message\MessageFactory
+     */
+    public function getMessageFactory()
+    {
+        return $this->factory;
     }
 
     /**

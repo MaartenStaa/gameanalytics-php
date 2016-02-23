@@ -1,7 +1,5 @@
 <?php namespace MaartenStaa\GameAnalytics;
 
-use Http\Discovery\MessageFactoryDiscovery;
-
 /**
  * A single message to be sent to GA.
  *
@@ -115,7 +113,7 @@ class Message
         $body = $this->getGzippedBody();
 
         // Build the request and return it.
-        return MessageFactoryDiscovery::find()
+        return $this->getClient()->getMessageFactory()
             ->createRequest('POST', $this->getEndpoint(), array(), $body)
             ->withHeader('Content-Type', 'application/json')
             ->withHeader('Content-Encoding', 'gzip')
