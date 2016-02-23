@@ -60,7 +60,7 @@ class Client
      * @param \Http\Client\HttpClient|null $http
      * @param \Http\Message\MessageFactory|null $factory
      */
-    public function __construct($key, $secret, HttpClient $http = null)
+    public function __construct($key, $secret, HttpClient $http = null, MessageFactory $factory = null)
     {
         $this->key = $key;
         $this->secret = $secret;
