@@ -1,7 +1,8 @@
 <?php namespace MaartenStaa\GameAnalytics;
 
-use Http\Adapter\HttpAdapter;
-use Http\Discovery\HttpAdapterDiscovery;
+use Http\Client\HttpClient;
+use Http\Discovery\HttpClientDiscovery;
+use Http\Message\MessageFactory;
 
 /**
  * Main GA client.
@@ -31,7 +32,7 @@ class Client
     /**
      * The HTTP handler that should be used.
      *
-     * @var \Http\Adapter\HttpAdapter
+     * @var \Http\Client\HttpClient
      */
     protected $http;
 
@@ -48,13 +49,13 @@ class Client
      *
      * @param string $key
      * @param string $secret
-     * @param \Http\Adapter\HttpAdapter|null $http
+     * @param \Http\Client\HttpClient|null $http
      */
-    public function __construct($key, $secret, HttpAdapter $http = null)
+    public function __construct($key, $secret, HttpClient $http = null)
     {
         $this->key = $key;
         $this->secret = $secret;
-        $this->http = $http ?: HttpAdapterDiscovery::find();
+        $this->http = $http ?: HttpClientDiscovery::find();
     }
 
     /**
@@ -80,7 +81,7 @@ class Client
     /**
      * Get the configured HTTP handler.
      *
-     * @return \Http\Adapter\HttpAdapter
+     * @return \Http\Client\HttpAdapter
      */
     public function getHttp()
     {

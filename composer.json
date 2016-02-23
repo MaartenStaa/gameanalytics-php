@@ -12,12 +12,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php-http/adapter-implementation": "^0.1",
-        "php-http/discovery": "^0.1"
+        "php-http/client-implementation": "^1.0",
+        "php-http/discovery": "^0.8"
     },
     "require-dev": {
-        "php-http/guzzle6-adapter": "^0.2",
-        "phpunit/phpunit": "~4"
+        "php-http/guzzle6-adapter": "~1",
+        "phpunit/phpunit": "~4",
+        "puli/composer-plugin": "^1.0",
+        "php-http/message": "^1.0"
     },
     "autoload": {
         "psr-4": {

@@ -2,7 +2,7 @@
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Handler\MockHandler;
-use Http\Adapter\Guzzle6HttpAdapter;
+use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -17,7 +17,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
      */
     public function testConstruction()
     {
-        $http = new Guzzle6HttpAdapter(new GuzzleClient(array(
+        $http = new GuzzleAdapter(new GuzzleClient(array(
             'handler' => new MockHandler,
         )));
         $client = new Client('aaaaa', 'bbbbb', $http);

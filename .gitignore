@@ -3,6 +3,7 @@ composer.lock
 composer.phar
 coverage.clover
 .DS_Store
+.puli
 Thumbs.db
 *.sublime-project
 *.sublime-workspace

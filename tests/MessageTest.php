@@ -5,7 +5,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
-use Http\Adapter\Guzzle6HttpAdapter;
+use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -70,7 +70,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
         $stack->push($history);
         // $stack->push($mockHandler);
 
-        $http = new Guzzle6HttpAdapter(new GuzzleClient(array(
+        $http = new GuzzleAdapter(new GuzzleClient(array(
             'handler' => $stack,
         )));
         $client = new Client('aaaaa', 'bbbbb', $http);
