@@ -116,7 +116,7 @@ class Message
 
         // Build the request and return it.
         return MessageFactoryDiscovery::find()
-            ->createRequest('POST', $this->getEndpoint(), '1.1', array(), $body)
+            ->createRequest('POST', $this->getEndpoint(), array(), $body)
             ->withHeader('Content-Type', 'application/json')
             ->withHeader('Content-Encoding', 'gzip')
             ->withHeader('Authorization', $this->getAuthorization($body));
